@@ -25,19 +25,17 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 
 
-http://localhost:8080/users/hello
-http://localhost:8080/users/02242500198
-http://localhost:8080/session/open?minutes=1&title=TESTE2
-http://localhost:8080/h2-console
-http://localhost:8080/swagger-ui/index.html
+* http://localhost:8080/users/hello
+* http://localhost:8080/h2-console
+* http://localhost:8080/swagger-ui/index.html
 
-http://localhost:8080/users/save?cpf=19839091069&name=USER1&able=true
-http://localhost:8080/users/save?cpf=62289608068&name=USER2&able=false
-http://localhost:8080/session/open?minutes=1&title=SESSION2
+* http://localhost:8080/users/save?cpf=19839091069&name=USER1&able=true
+* http://localhost:8080/users/save?cpf=62289608068&name=USER2&able=false
+* http://localhost:8080/session/open?minutes=1&title=SESSION2
 
-http://localhost:8080/session/vote/2/19839091069/yes
-http://localhost:8080/session/vote/2/19839091069/yes
-http://localhost:8080/session/vote/1/19839091069/yes
-http://localhost:8080/session/vote/1/62289608068/no
+* http://localhost:8080/session/vote/2/19839091069/yes
+* http://localhost:8080/session/vote/2/19839091069/yes
+* http://localhost:8080/session/vote/1/19839091069/yes
+* http://localhost:8080/session/vote/1/62289608068/no
 
 
