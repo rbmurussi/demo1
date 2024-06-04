@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.ResultSession;
 import com.example.demo.model.Session;
 import com.example.demo.model.Vote;
 import com.example.demo.model.VotePk;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,6 +44,14 @@ public class SessionServiceImpl implements SessionService {
         return session.getId();
     }
 
+    /**
+     * Method to vote
+     *
+     * @param idSession
+     * @param cpf
+     * @param yesOrNo
+     * @return
+     */
     @Override
     public String vote(Long idSession, String cpf, String yesOrNo) {
         String ableToVote = userService.getAbleToVote(cpf);
@@ -69,5 +79,14 @@ public class SessionServiceImpl implements SessionService {
         Vote vote = new Vote(id, theVote);
         voteRepository.save(vote);
         return "computed vote!";
+    }
+
+    @Override
+    public String result(Long idSession) {
+        List<ResultSession> list = voteRepository.findByIdSession(idSession);
+        if(list == null) {
+            return "Not existing resultSession";
+        }
+        return list.toString();
     }
 }

@@ -27,4 +27,9 @@ public class SessionController {
     public String vote(@PathVariable Long idSession, @PathVariable String cpf, @PathVariable String yesOrNo) {
         return sessionService.vote(idSession, cpf, yesOrNo);
     }
+
+    @GetMapping("/result/{idSession}")
+    public String result(@PathVariable Long idSession) {
+        return sessionService.result(idSession);
+    }
 }
