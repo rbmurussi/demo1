@@ -6,6 +6,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.util.BrazilUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,7 +27,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(cpf).orElseThrow(() -> new RuntimeException("Cant find user by id " + cpf));
     }
 
+
+    @Cacheable("userService.getAbleToVote")
     public String getAbleToVote(String cpf) {
+        logger.info("Force sleep 5 seconds, for the see cache working...");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            logger.error(e.getMessage());
+        }
         try {
             User user = getUserById(cpf);
             if(user.getAble()) {
